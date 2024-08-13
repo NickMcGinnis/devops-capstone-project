@@ -169,7 +169,7 @@ class TestAccountService(TestCase):
         """ It should return 404 when trying to update non-existant account """
         test_account = AccountFactory()
         resp = self.client.put(
-            f"{BASE_URL}/0", 
+            f"{BASE_URL}/0",
             json=test_account.serialize(),
             content_type="application/json"
         )
@@ -189,7 +189,6 @@ class TestAccountService(TestCase):
 
     def test_delete_account_not_found(self):
         """ It should return 404 when trying to delete non-existant account """
-        test_account = AccountFactory()
         resp = self.client.delete(
             f"{BASE_URL}/0"
         )
