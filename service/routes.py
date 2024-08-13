@@ -56,7 +56,7 @@ def create_accounts():
     return make_response(
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
-    
+
 
 ######################################################################
 # LIST ALL ACCOUNTS
@@ -113,7 +113,7 @@ def update_accounts(account_id):
 
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] was not found")
-    
+
     account.deserialize(request.get_json())
     account.update()
 
@@ -136,7 +136,7 @@ def delete_accounts(account_id):
 
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] was not found")
-    
+
     account.delete()
     return "", status.HTTP_204_NO_CONTENT
 
